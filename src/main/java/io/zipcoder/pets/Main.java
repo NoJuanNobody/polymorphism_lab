@@ -1,35 +1,41 @@
 package io.zipcoder.pets;
 
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
-
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * Created by alejandrolondono on 5/4/16.
  */
 public class Main {
-    Scanner scanner = new Scanner();
+    Scanner scanner = new Scanner(System.in);
+    Pet[] pets;
 
-    ArrayList<Pet> pets;
 
     public void app(){
         System.out.println("How many pets do you have?");
-        int petCount=Integer.parseInt(scanner.nextLine());
-        System.out.println("what are there names");
-        ArrayList<String> names=null;
-        for(int i=0;i>petCount; i++){
-
-            if(i > 0) System.out.println("What is the next name?");
-            scanner.nextLine();
-            names.add(scanner.nextLine());
+        int petCount=scanner.nextInt();
+        pets = new Pet[petCount];
+        scanner.nextLine();
+        System.out.println("What are their names? FORMAT: name_one name_two...name_n");
+        String names = scanner.nextLine();
+        String[] namesArr = this.splitNames(names);
+        System.out.println(Arrays.toString(namesArr));
+        for(int i=0; i<petCount; i++){
+            pets[i] = new Pet(namesArr[i]);
         }
-        this.createPets(names);
     }
 
-    public Pet[] createPets(ArrayList<String> names){
-        for(){
-            pets.add(new Pet(name))
-        }
+    public String[] splitNames(String names){
+        String[] namesArr = names.split(" ");
+        return namesArr;
+    }
+
+
+
+    public static void main(String[] args) {
+        Main main = new Main();
+
+        main.app();
+
     }
 }
