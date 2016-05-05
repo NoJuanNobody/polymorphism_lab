@@ -26,4 +26,8 @@ public class Pet {
     public Pet(String name){
         this.name = name;
     }
+
+    public String speak(){
+        return "this is not a pet, it is just a tribute";
+    }
 }
