@@ -11,7 +11,7 @@ public class Main {
     Pet[] pets;
 
 
-    public void app(){
+    public Pet[] app(){
         System.out.println("How many pets do you have?");
         int petCount=scanner.nextInt();
         pets = new Pet[petCount];
@@ -23,6 +23,7 @@ public class Main {
         for(int i=0; i<petCount; i++){
             pets[i] = new Pet(namesArr[i]);
         }
+        return pets;
     }
 
     public String[] splitNames(String names){
