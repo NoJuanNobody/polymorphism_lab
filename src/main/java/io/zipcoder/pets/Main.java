@@ -1,6 +1,5 @@
 package io.zipcoder.pets;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -14,15 +13,34 @@ public class Main {
     public Pet[] app(){
         System.out.println("How many pets do you have?");
         int petCount=scanner.nextInt();
-        pets = new Pet[petCount];
-        scanner.nextLine();
-        System.out.println("What are their names? FORMAT: name_one name_two...name_n");
-        String names = scanner.nextLine();
-        String[] namesArr = this.splitNames(names);
-        System.out.println(Arrays.toString(namesArr));
-        for(int i=0; i<petCount; i++){
-            pets[i] = new Pet(namesArr[i]);
+        int i = 0;
+        while(i<petCount){
+            System.out.println("What is the name of pet"+" "+(i+1));
+            String petName = scanner.nextLine();
+            scanner.nextLine();
+            System.out.println("what is the type of your pet");
+            String petType = scanner.nextLine();
+            scanner.nextLine();
+            switch(petType){
+
+                case "Chinchilla":
+                    pets[i] = new Chinchilla(petName);
+                    break;
+                case "Dog":
+                    Dog currentPet = new Dog(petName);
+                    break;
+                case "Cat":
+                    pets[i]= new Cat(petName);
+                    break;
+                default:
+                    pets[i]= new Pet(petName);
+                    break;
+            }
+
+            i++;
         }
+
+        System.out.println(pets);
         return pets;
     }
 

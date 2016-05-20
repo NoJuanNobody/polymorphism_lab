@@ -3,16 +3,8 @@ package io.zipcoder.pets;
 /**
  * Created by alejandrolondono on 5/4/16.
  */
-public class Pet {
-    private String name, type="any";
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
+ public class Pet {
+    protected String name;
 
     public String getName() {
         return name;
@@ -23,11 +15,16 @@ public class Pet {
         this.name = name;
     }
 
+    public Pet(){}
+
     public Pet(String name){
-        this.name = name;
+        this.setName(name);
     }
 
     public String speak(){
         return "this is not a pet, it is just a tribute";
     }
+
+    interface Speakable{ String speak();}
+
 }
